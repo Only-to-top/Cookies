@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    /* cookies */
+    #gdpr-cookie-message {
+      position: fixed;
+      right: 10px;
+      bottom: 10px;
+      left: 10px;
+      max-width: 100%;
+      background-color: #0d5268;
+      padding: 0px 10px 15px 10px;
+      border-radius: 5px;
+      box-shadow: 0 6px 6px rgba(0,0,0,.4);
+      padding-right: 125px;
+    }
+    #gdpr-cookie-advanced{display: none;}
+    #gdpr-cookie-message h4 {
+      font-size: 17px;
+      color: #fff;
+      font-weight: 600;
+    }
+    #gdpr-cookie-message a {
+      color: #fff;
+      font-size: 15px;
+      padding-bottom: 2px;
+      transition: all 0.3s ease-in;
+      border-bottom: 1px dashed #fafafa;
+    }
+    #gdpr-cookie-message a:hover {
+      color: white;
+      text-decoration: none;
+    }
+    #gdpr-cookie-message button {
+      border: none;
+      background: var(--mycolor);
+      color: white;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 15px;
+      padding: 7px;
+      border-radius: 3px;
+      border: 1px solid #fff;
+      cursor: pointer;
+      transition: all 0.3s ease-in;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+    #gdpr-cookie-message button:hover {
+      background: white;
+      color: var(--mycolor);
+      transition: all 0.3s ease-in;
+    }
+  </style>
+</head>
+<body>
+  
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="libs/jquery.ihavecookies.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('body').ihavecookies({
+      title: 'Разрешить сайту принимать Cookie?',
+      message: '',
+      delay: 3000,
+      link: '/privacy',
+      onAccept: function(){
+        var myPreferences = $.fn.ihavecookies.cookie();
+        console.log('Yay! The following preferences were saved...');
+        console.log(myPreferences);
+      },
+      acceptBtnLabel: 'Соглашаюсь',
+      moreInfoLabel: 'Больше информации',
+      uncheckBoxes: false,
+    });
+  });
+</script>
+
+</body>
+</html>
